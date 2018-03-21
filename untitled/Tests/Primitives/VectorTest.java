@@ -1,6 +1,5 @@
 package Primitives;
 
-import com.sun.javafx.tools.packager.MakeAllParams;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
