@@ -25,10 +25,14 @@ public class Plane{
     };
     // ***************** Getters/Setters ********************** //
     public Vector getNormal(Point3D point){return _normal;};
+
     public Point3D getQ(){return _Q;};
+
     public void setNormal(Vector normal){this._normal = normal;};
+
     public void setQ(Point3D d){this._Q = d;};
     // ***************** Operations ******************** //
+    //i have no idea what we need to do here.
     public List<Point3D> FindIntersections(Ray ray){
         return null;
     };
