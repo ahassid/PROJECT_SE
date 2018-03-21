@@ -1,11 +1,18 @@
 package Geometries;
 
+import Primitives.Point3D;
+import Primitives.Vector;
+import Primitives.Ray;
+
+import java.util.List;
+
 public class Plane{
+
     private Vector _normal;
     private Point3D _Q;
     // ***************** Constructors ********************** //
     public Plane(){
-         _normal = new vector();
+         _normal = new Vector();
          _Q = new Point3D();
     };
     public Plane (Plane plane){
