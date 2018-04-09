@@ -48,7 +48,7 @@ public class RadialGeometry {
     }
 
     // FUNCTION
-//   getRadius
+//   setRadius
 // PARAMETERS
 //   double - the radius
 // RETURN VALUE
