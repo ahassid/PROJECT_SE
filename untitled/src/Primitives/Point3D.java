@@ -62,7 +62,7 @@ public class Point3D extends Point2D {
 
     @Override // Implements print ()
     public String toString() {
-        return String.format("the coordinates are: x = %.2f, y = %.2f, z =  %.2f", _x.get_coordinate(), _y.get_coordinate(), _z.get_coordinate());
+        return String.format("(x = %.2f, y = %.2f, z =  %.2f)", _x.get_coordinate(), _y.get_coordinate(), _z.get_coordinate());
     }
 
     // ***************** Operations ******************** //

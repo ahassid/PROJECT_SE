@@ -1,5 +1,6 @@
 package Geometries;
 
+
 public class RadialGeometry {
     protected double _radius;
 
@@ -21,4 +22,3 @@ public class RadialGeometry {
         _radius = radius;
     }
 }
-//xx

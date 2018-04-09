@@ -56,7 +56,7 @@ public class Vector implements Comparable<Vector> {
 
     public String toString() {
 
-        return String.format("the coordinates are: x = %.2f, y = %.2f, z =  %.2f",
+        return String.format("(x = %.2f, y = %.2f, z =  %.2f)",
                 _head._x.get_coordinate(), _head._y.get_coordinate(), _head.getZ().get_coordinate());
 
     }
