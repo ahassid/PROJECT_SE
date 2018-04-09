@@ -34,7 +34,7 @@ public class Point3DTest {
         System.out.println("toString");
 
         Point3D p = new Point3D(1, 2, 3);
-        assertEquals("the coordinates are: x = 1.00, y = 2.00, z =  3.00", p.toString());
+        assertEquals("(x = 1.00, y = 2.00, z =  3.00)", p.toString());
         // assertFalse("the coordinates are: x = 1.00 y = 2.00, z =  3.00" == p.toString());
         // assertFalse("the coordinates are: x = 1.00, y = 2.0, z =  3.00" == p.toString());
     }
