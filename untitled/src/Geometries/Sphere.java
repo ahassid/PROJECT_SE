@@ -73,7 +73,6 @@ public class Sphere  extends RadialGeometry{
 // This functions sets the Center of the Cylinder
     public void setCenter(Point3D center){this._center = center;};
     // ***************** Operations ******************** //
-    //i have no idea what we need to do here.
     public List<Point3D> FindIntersections(Ray ray){
         return null;
     };
@@ -86,6 +85,14 @@ public class Sphere  extends RadialGeometry{
 // MEANING
 // This functions get the Normal from 2 vectors
     public Vector getNormal(Point3D point){
-        return null;
+        double x1 = this._center.getX().get_coordinate(); // First Vector X Coordinate
+        double y1 = this._center.getY().get_coordinate(); // First Vector Y Coordinate
+        double z1 = this._center.getZ().get_coordinate(); // First Vector Z Coordinate
+        double x2 = point.getX().get_coordinate(); // Second Vector X Coordinate
+        double y2 = point.getY().get_coordinate(); // Second Vector Y Coordinate
+        double z2 = point.getZ().get_coordinate(); // Second Vector Z Coordinate
+
+        Vector v = new Vector(y1 * z2 - y2 * z1, z1 * x2 - x1 * z2, x1 * y2 - x2 * y1);
+        return v;
     };
 }
