@@ -1,7 +1,12 @@
 package Geometries;
 
 
-public class RadialGeometry {
+import Primitives.Point3D;
+import Primitives.Ray;
+
+import java.awt.*;
+
+public abstract class RadialGeometry extends Geometry {
     protected double _radius;
 
     // ***************** Constructors ********************** //

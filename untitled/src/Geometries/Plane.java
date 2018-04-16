@@ -6,11 +6,13 @@ import Primitives.Ray;
 
 import java.util.List;
 
-public class Plane{
+public class Plane extends RadialGeometry{
 
-    private Vector _normal;
+    private Vector _normal = null;
     private Point3D _Q;
+
     // ***************** Constructors ********************** //
+
     // FUNCTION
 //   Plane
 // PARAMETERS
@@ -19,11 +21,11 @@ public class Plane{
 // none
 // MEANING
 // This functions builds a Plane (Equals The vector to 0)
-
     public Plane(){
          _normal = new Vector();
          _Q = new Point3D();
     };
+
     // FUNCTION
 //   Plane
 // PARAMETERS
@@ -32,11 +34,11 @@ public class Plane{
 // none
 // MEANING
 // This functions builds a Plane. It gets a Plane and and make it's value to the itself Plane.
-
     public Plane (Plane plane){
         _normal = plane._normal;
         _Q = plane._Q;
     };
+
     // FUNCTION
 //   Plane
 // PARAMETERS
@@ -45,12 +47,14 @@ public class Plane{
 // none
 // MEANING
 // This functions builds a Plane. It gets a normal and point 3D and copy they value to the itself Plane.
-
     public Plane (Vector normal, Point3D q) {
-        _normal = normal;
-        _Q = q;
+        _normal = new Vector(normal);
+        _normal.normalize();
+        _Q = new Point3D(q);
     };
+
     // ***************** Getters/Setters ********************** //
+
     // FUNCTION
 //   getNormal
 // PARAMETERS
@@ -59,8 +63,8 @@ public class Plane{
 // vector
 // MEANING
 // This functions returns the Normal of the plane
-    public Vector getNormal(Point3D point){return _normal;};
-    // ***************** Getters/Setters ********************** //
+    public Vector getNormal(Point3D point){return new Vector(_normal);}
+
     // FUNCTION
 //   getQ
 // PARAMETERS
@@ -69,7 +73,8 @@ public class Plane{
 // point 3D
 // MEANING
 // This functions returns the q of the plane
-    public Point3D getQ(){return _Q;};
+    public Point3D getQ(){return new Point3D(_Q);}
+
     // FUNCTION
 //   setNormal
 // PARAMETERS
@@ -78,8 +83,8 @@ public class Plane{
 // none
 // MEANING
 // This functions sets the normal of the plane
+    public void setNormal(Vector normal){this._normal = new Vector(normal);}
 
-    public void setNormal(Vector normal){this._normal = normal;};
     // FUNCTION
 //   setQ
 // PARAMETERS
@@ -88,10 +93,10 @@ public class Plane{
 // none
 // MEANING
 // This functions sets the q of the plane
+    public void setQ(Point3D d){this._Q = new Point3D(d);}
 
-    public void setQ(Point3D d){this._Q = d;};
     // ***************** Operations ******************** //
-    //i have no idea what we need to do here.
+
     // FUNCTION
 //   FindIntersections
 // PARAMETERS

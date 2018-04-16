@@ -6,7 +6,7 @@ import Primitives.Vector;
 
 import java.util.List;
 
-public class Triangle {
+public class Triangle extends RadialGeometry {
     private Point3D _p1;
     private Point3D _p2;
     private Point3D _p3;
