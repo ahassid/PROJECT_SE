@@ -150,15 +150,12 @@ public class Triangle extends RadialGeometry {
 // This functions gets a Point3D and returns the normal of the Triangle
 
     public Vector getNormal(Point3D point) {
-        double x1 = this._p1.getX().get_coordinate(); // First Vector X Coordinate
-        double y1 = this._p1.getY().get_coordinate(); // First Vector Y Coordinate
-        double z1 = this._p1.getZ().get_coordinate(); // First Vector Z Coordinate
-        double x2 = point.getX().get_coordinate(); // Second Vector X Coordinate
-        double y2 = point.getY().get_coordinate(); // Second Vector Y Coordinate
-        double z2 = point.getZ().get_coordinate(); // Second Vector Z Coordinate
-
-        Vector v = new Vector(y1 * z2 - y2 * z1, z1 * x2 - x1 * z2, x1 * y2 - x2 * y1);
-        return v;
+        Vector u = new Vector(_p1,_p2);
+        Vector v = new Vector(_p1,_p3);
+        Vector n = new Vector(u.crossProduct(v));
+        n.normalize();
+        n.scale(-1);
+        return n;
     }
     public List<Point3D> FindIntersections(Ray ray) {
         return null;
