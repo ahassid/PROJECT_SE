@@ -74,5 +74,6 @@ public class Camera {
 
     public Ray constructRayThroughPixel(int Nx, int Ny, double x, double y, double screenDist, double screenWidth, double screenHeight) {
         return null;
+        // NEED TO DO!!!
     }
 }
