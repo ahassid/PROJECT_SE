@@ -4,6 +4,7 @@ import Primitives.Point3D;
 import Primitives.Vector;
 import Primitives.Ray;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Plane extends RadialGeometry{
@@ -33,10 +34,10 @@ public class Plane extends RadialGeometry{
 // RETURN VALUE
 // none
 // MEANING
-// This functions builds a Plane. It gets a Plane and and make it's value to the itself Plane.
+// This functions builds a Plane. It gets a Plane and and make its value to the itself Plane.
     public Plane (Plane plane){
-        _normal = plane._normal;
-        _Q = plane._Q;
+        _normal = plane.getNormal(null);
+        _Q = plane.getQ();
     };
 
     // FUNCTION
@@ -46,7 +47,7 @@ public class Plane extends RadialGeometry{
 // RETURN VALUE
 // none
 // MEANING
-// This functions builds a Plane. It gets a normal and point 3D and copy they value to the itself Plane.
+// This functions builds a Plane. It gets a normal and point 3D and copy their values to the itself Plane.
     public Plane (Vector normal, Point3D q) {
         _normal = new Vector(normal);
         _normal.normalize();
@@ -106,6 +107,20 @@ public class Plane extends RadialGeometry{
 // MEANING
 // This functions Find the Intersections of vector on view
     public List<Point3D> FindIntersections(Ray ray){
-        return null;
+
+        List<Point3D> intersectionPointsPlane = new ArrayList<Point3D>();
+        Point3D P0 = ray.get_POO();
+        Point3D Q0 = this.getQ();
+        Vector N = this.getNormal(null);
+        Vector V = ray.get_direction();
+        Vector v = new Vector(P0, Q0);
+        double t = -1 * N.dotProduct(v) / N.dotProduct(v);
+
+        if (t >= 0) {
+            V.scale(t);
+            P0.add(V);
+            intersectionPointsPlane.add(P0);
+        }
+            return intersectionPointsPlane;
     };
 }
