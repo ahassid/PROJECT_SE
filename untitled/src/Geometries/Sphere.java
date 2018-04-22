@@ -4,6 +4,7 @@ import Primitives.Point3D;
 import Primitives.Ray;
 import Primitives.Vector;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -73,8 +74,33 @@ public class Sphere  extends RadialGeometry{
 // This functions sets the Center of the Cylinder
     public void setCenter(Point3D center){this._center = center;};
     // ***************** Operations ******************** //
+    // Checking if the interseculating point is bounded by the triangle
+    @Override
     public List<Point3D> FindIntersections(Ray ray){
-        return null;
+        List<Point3D> intersectionPoints= new ArrayList<Point3D>();
+        Vector l = new Vector(ray.get_POO());
+        double tm = l.dotProduct(ray.get_direction());
+        double d = Math.sqrt(Math.pow(l.length(),2) - Math.pow(tm,2));
+        if (d > this.getRadius())
+            return intersectionPoints;
+        double th = Math.sqrt(Math.pow(this.getRadius(),2) - Math.pow(d,2));
+        double t1 = tm - th;
+        double t2 = tm + th;
+        if (t1>=0){
+            Vector v = ray.get_direction();
+            v.scale(t1);
+            Point3D p1 = ray.get_POO();
+            p1.add(v);
+            intersectionPoints.add(p1);
+        }
+        if (t2>=0){
+            Vector v = ray.get_direction();
+            v.scale(t2);
+            Point3D p2 = ray.get_POO();
+            p2.add(v);
+            intersectionPoints.add(p2);
+        }
+        return intersectionPoints;
     };
     // FUNCTION
 //   getNormal
@@ -84,15 +110,10 @@ public class Sphere  extends RadialGeometry{
 // none
 // MEANING
 // This functions get the Normal from 2 vectors
+    @Override
     public Vector getNormal(Point3D point){
-        double x1 = this._center.getX().get_coordinate(); // First Vector X Coordinate
-        double y1 = this._center.getY().get_coordinate(); // First Vector Y Coordinate
-        double z1 = this._center.getZ().get_coordinate(); // First Vector Z Coordinate
-        double x2 = point.getX().get_coordinate(); // Second Vector X Coordinate
-        double y2 = point.getY().get_coordinate(); // Second Vector Y Coordinate
-        double z2 = point.getZ().get_coordinate(); // Second Vector Z Coordinate
-
-        Vector v = new Vector(y1 * z2 - y2 * z1, z1 * x2 - x1 * z2, x1 * y2 - x2 * y1);
-        return v;
+      Vector n = new Vector(_center,point);
+      n.normalize();
+      return n;
     };
 }
