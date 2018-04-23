@@ -1,5 +1,5 @@
 package Geometries;
-/////
+
 import Elements.Camera;
 import Primitives.Point3D;
 import Primitives.Ray;
