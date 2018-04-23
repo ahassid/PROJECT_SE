@@ -1,6 +1,6 @@
 // Testing image writer
 package Renderer;
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 import java.util.Random;
 public class ImageWriterTest

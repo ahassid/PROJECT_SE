@@ -10,7 +10,7 @@ public abstract class Light {
 public Light() { _color = null; }
 public Light (Color color) { _color = color; }
 
-// ***************** Getters/Setters **********************
+//// ***************** Getters/Setters **********************
 public Color getIntensity() { return _color; }
 
 }

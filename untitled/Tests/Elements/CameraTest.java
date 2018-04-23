@@ -3,7 +3,7 @@ package Elements;
 import Primitives.Point3D;
 import Primitives.Ray;
 import Primitives.Vector;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static junit.framework.TestCase.assertTrue;
 import static junit.framework.TestCase.fail;
