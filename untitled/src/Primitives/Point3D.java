@@ -4,6 +4,7 @@ public class Point3D extends Point2D {
     private Coordinate _z;
 
     // ***************** Constructors ********************** //
+
     public Point3D() {
         _x = new Coordinate();
         _y = new Coordinate();
