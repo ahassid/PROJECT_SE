@@ -18,7 +18,7 @@ public class Vector implements Comparable<Vector> {
     }
 
     public Vector(Vector vector) {
-        _head = new Point3D(vector._head);
+        _head = vector.getHead();
     }
 
     public Vector(double xHead, double yHead, double zHead) {
@@ -26,9 +26,10 @@ public class Vector implements Comparable<Vector> {
     }
 
     public Vector(Point3D p1, Point3D p2) {
-        p1.subtract(new Vector(p2));
-        _head = new Point3D(p1._x, p1._y, p1.getZ());
-    }
+        this(p2.getX().get_coordinate() - p1.getX().get_coordinate(),
+                p2.getY().get_coordinate() - p1.getY().get_coordinate(),
+                p2.getZ().get_coordinate() - p1.getZ().get_coordinate());
+        }
 
 
     // ***************** Getters/Setters ********************** //
