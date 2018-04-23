@@ -3,11 +3,12 @@ package Elements;
 import Primitives.Point3D;
 import Primitives.Ray;
 import Primitives.Vector;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static junit.framework.TestCase.assertTrue;
+import static junit.framework.TestCase.fail;
 
-class CameraTest {
+public class CameraTest {
 
     @Test
     void constructRayThroughPixel() {
