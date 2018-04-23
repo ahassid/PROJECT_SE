@@ -1,4 +1,4 @@
-// Testing image writer
+/// Testing image writer
 package Renderer;
 import org.junit.Test;
 
